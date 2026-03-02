@@ -9,46 +9,18 @@ const centerText = document.getElementById('center-text');
 
 // DANH SÁCH LINK ẢNH CỦA BẠN - HÃY THAY LINK ẢNH THẬT VÀO ĐÂY
 const imageLinks = [
-    "image/AiNhiH8K12.png",
-    "image/AiNhiV6K14.jpg",
-    "image/AnhThuH8K14.JPG",
-    "image/BangChauG9K13.jpg",
-    "image/BaoGiangSCK13.jpg",
-    "image/BaoHanT1K14.jpg",
-    "image/BaoNguyenP2K13.png",
-    "image/BaoThyP2K13.jpg",
-    "image/BaoTramV6K12.png",
-    "image/BaoTranV6K12.jpg",
-    "image/BaoTranV6K14.jpg",
-    "image/BoiTramITK12.png",
-    "image/CamTuyetS4k13.JPG",
-    "image/ChauGiangE7K14.jpg",
-    "image/CoAnh.jpg",
-    "image/GiaHanV6K14.jpg",
-    "image/HaHuongSCK13.png",
-    "image/HaLinhH8K14.JPG",
-    "image/HuyenTranH8K12.JPG",
-    "image/KhanhHuyenG9K12.JPG",
-    "image/KhanhLinhV6K12.jpg",
-    "image/MinhUyenP2K13.jpg",
-    "image/NgocThanhV6K14.jpg",
-    "image/NhuQuynhT1K12.jpg",
-    "image/PhuongThaoT1K14.jpg",
-    "image/PhuongThuyV6K12.jpg",
-    "image/PhuongTrinhP2K13.png",
-    "image/QuynhNhuP2K12.jpg",
-    "image/SongThuE7K14.JPG",
-    "image/TamAnhE7K14.PNG",
-    "image/ThienThuE7K14.jpg",
-    "image/ThucManE7K12.jpg",
-    "image/ThucNhiT1K13.jpg",
-    "image/TueManS4K12.jpg",
-    "image/TuyetLanP2K14.jpg",
-    "image/UyenNhiT1K12.JPG",
-    "image/VanPhuongG9K14.jpg",
-    "image/XuanNganSCK13.jpg",
-    "image/XuanNhiP2K13.jpeg",
-    "image/YenNganP2K12.png"
+    "image/KhanhVyitk12.jpg",
+    "image/HaLinhitk12.jpg",
+    "image/AnhThuitk12.jpg",
+    "image/ThuThaoitk12.jpg",
+    "image/BoiTramitk12.png",
+    "image/ThanhYenitk12.jpg",
+    "image/HongPhuongitk12.jpg",
+    "image/HieuHoaitk12.jpg",
+    "image/KhanhQuynhitk12.jpg",
+    "image/MinhKhanhitk12.jpg",
+    "image/HoaiAnitk12.jpg",
+    "image/NhuTamitk12.jpg"
 ];
 
 let imageInterval;
@@ -94,7 +66,7 @@ valentines.addEventListener('mouseleave', () => {
 // Logic đánh chữ thư
 let indexText = 0;
 let textLetter = document.querySelector('.textLetter h2');
-const textLetterH2 = "Gửi những nàng thơ của Hạc, 🎨✨";
+const textLetterH2 = "Gửi những nàng thơ của ITK12! ✨";
 let timoutTextLetter;
 
 function textCharLetter() {
@@ -119,7 +91,7 @@ function funcTimeoutLetter() {
 
 let indexTextContent = 0;
 let textLetterContent = document.querySelector('.contentLetter');
-const textLetterP = "Hành trình đã qua, đem lại cho chúng ta biết bao kỉ niệm đẹp dưới mái trường Chuyên này, hy vọng chúng ta có thể cùng nhau, đoàn kết, xây dựng CLB phát triển mỗi ngày.Nhân ngày 8/3, chúc các bạn luôn rạng rỡ và tỏa sáng như những tác phẩm nghệ thuật tuyệt đẹp nhất. Cảm ơn các bạn đã luôn là những mảng màu rực rỡ, tươi vui tô điểm cho câu lạc bộ của chúng ta. Chúc một nửa thế giới của Hạc có một ngày ngập tràn tiếng cười và thật nhiều hạnh phúc nha. 8/3 thật trọn vẹn nhé! 💖";
+const textLetterP = "Hành trình đã qua, đem lại cho chúng ta biết bao kỉ niệm đẹp dưới mái trường Chuyên này, các cậu chắc đang cất riêng cho mình những mảnh kí ức đẹp đó nhỉ! Nhân ngày 8/3, chúc các bạn luôn rạng rỡ và tỏa sáng với phiên bản tuyệt vời nhất. Cảm ơn các bạn đã luôn là những mảnh thanh xuân rực rỡ trong kí ức tụi tớ. Chúc một nửa thế giới của ITK12 có một ngày ngập tràn tiếng cười và thật nhiều hạnh phúc nha. 8/3 thật trọn vẹn nhé! 💖";
 let timoutTextLetterContent;
 function textCharLetterContent() {
     if (indexTextContent < textLetterP.length) {
