@@ -1,0 +1,693 @@
+/* style.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #a75ff2 0%, #d76fff 50%, #f689f9 100%);
+    color: white;
+}
+
+/* Bầu trời sao */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 0;
+}
+
+.stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Nút bắt đầu và nội dung chính */
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.intro-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.avatar-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.greeting-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #fff;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 2px 0;
+    text-transform: uppercase;
+}
+
+.subtitle-cursive {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #ffb6c1;
+    /* Soft pink variant */
+    margin: -5px 0 5px 0;
+    z-index: 1;
+}
+
+#start-btn {
+    margin-top: 15px;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.music-icon {
+    font-size: 1.4rem;
+    color: #4CAF50;
+    margin-right: 8px;
+}
+
+#start-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 1);
+}
+
+/* Hiệu ứng hoa */
+#flower-container {
+    display: none;
+    position: absolute;
+    bottom: 50%;
+    /* Vị trí giữa màn hình */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    /* Đặt trọng tâm ở giữa */
+    width: 350px;
+    height: 350px;
+    z-index: 10;
+}
+
+.flower-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    line-height: 1.5;
+    z-index: 2;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.highlight-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-transform: lowercase;
+}
+
+/* Hộp thư */
+#letter-modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 400px;
+    background: #fffdf5;
+    color: #5a3d31;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.letter-content h2 {
+    color: #d6336c;
+    font-family: cursive;
+    margin-bottom: 10px;
+}
+
+.letter-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+#continue-btn {
+    padding: 10px 20px;
+    background-color: #d6336c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Chữ trung tâm khi ảnh bay */
+#center-text {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: serif;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Ảnh bay lơ lửng */
+#floating-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.floating-img {
+    position: absolute;
+    bottom: -200px;
+    width: 120px;
+    height: auto;
+    border: 5px solid white;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: floatUp 8s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8) rotate(var(--start-rot));
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(1.1) rotate(var(--end-rot));
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* envelope */
+.letter {
+    position: relative;
+    z-index: 1;
+}
+
+.valentines {
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+    animation: up 3s linear infinite;
+}
+
+@keyframes up {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f08080;
+}
+
+.envelope:before {
+    background-color: #f08080;
+    content: "";
+    position: absolute;
+    width: 212px;
+    height: 212px;
+    transform: rotate(45deg);
+    top: -105px;
+    left: 44px;
+    border-radius: 30px 0 0 0;
+}
+
+.card {
+    position: absolute;
+    background-color: #eae2b7;
+    width: 270px;
+    height: 170px;
+    top: 5px;
+    left: 15px;
+    box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
+    transition: top 0.5s;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    border: 3px solid #003049;
+    border-style: dotted;
+    width: 240px;
+    height: 140px;
+    left: 12px;
+    top: 12px;
+}
+
+.text {
+    position: absolute;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 25px;
+    top: 19px;
+    left: 85px;
+    color: #003049;
+}
+
+.heart {
+    background-color: #d62828;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 110px;
+    left: 105px;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    background-color: #d62828;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after {
+    left: 15px;
+    top: 0;
+}
+
+.hearts {
+    position: absolute;
+    top: 0
+}
+
+.one,
+.two,
+.three,
+.four,
+.five {
+    background-color: red;
+    display: inline-block;
+    height: 10px;
+    margin: 0 10px;
+    position: relative;
+    transform: rotate(-45deg);
+    width: 10px;
+    top: 50px;
+}
+
+.one:before,
+.one:after,
+.two:before,
+.two:after,
+.three:before,
+.three:after,
+.four:before,
+.four:after,
+.five:before,
+.five:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+}
+
+.one:before,
+.two:before,
+.three:before,
+.four:before,
+.five:before {
+    top: -5px;
+    left: 0;
+}
+
+.one:after,
+.two:after,
+.three:after,
+.four:after,
+.five:after {
+    left: 5px;
+    top: 0;
+}
+
+.one {
+    left: 10px;
+    animation: heartAnim 1s ease-out infinite;
+}
+
+.two {
+    left: 30px;
+    animation: heartAnim 2s ease-out infinite;
+}
+
+.three {
+    left: 50px;
+    animation: heartAnim 1.5s ease-out infinite;
+}
+
+.four {
+    left: 70px;
+    animation: heartAnim 2.3s ease-out infinite;
+}
+
+.five {
+    left: 90px;
+    animation: heartAnim 1.7s ease-out infinite;
+}
+
+@keyframes heartAnim {
+    0% {
+        transform: translateY(0) rotate(-45deg) scale(0.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-150px) rotate(-45deg) scale(1.3);
+        opacity: 0.5;
+    }
+}
+
+.front {
+    position: absolute;
+    border-right: 180px solid #f4978e;
+    border-top: 95px solid transparent;
+    border-bottom: 100px solid transparent;
+    left: 120px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    z-index: 10;
+}
+
+.front:before {
+    position: absolute;
+    content: "";
+    border-left: 300px solid #f8ad9d;
+    border-top: 195px solid transparent;
+    left: -120px;
+    top: -95px;
+    width: 0;
+    height: 0;
+}
+
+.shadow {
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 265px;
+    left: -15px;
+    animation: scale 3s linear infinite;
+    z-index: -1;
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(0.85);
+    }
+}
+
+#castle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#theSvg {
+    width: 80%;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+text {
+    fill: #e6668a;
+    font-family: consolas;
+    font-size: 9px;
+}
+
+.heartLetterItem::before,
+.heartLetterItem::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.heartLetterItem::before {
+    top: -50%;
+    left: 0;
+}
+
+.heartLetterItem::after {
+    left: -50%;
+    top: 0;
+}
+
+/* Responsive Styles for Mobile Phones */
+@media screen and (max-width: 768px) {
+    .greeting-text {
+        font-size: 2.2rem !important;
+        padding: 0 10px;
+    }
+
+    .avatar-container {
+        width: 120px !important;
+        height: 120px !important;
+        margin-bottom: 20px !important;
+    }
+
+    #theSvg {
+        width: 125vw !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Scaling the closed envelope down */
+    .letter {
+        transform: scale(0.5) !important;
+    }
+
+
+    /* Opened letter container layout changes */
+    .formLetter,
+    .before {
+        height: auto !important;
+        min-height: 480px !important;
+        width: 90vw !important;
+        max-width: 350px !important;
+        padding: 15px 10px !important;
+    }
+
+    .wrapperLetter {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .giftbox {
+        width: 100% !important;
+        height: 100px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-end !important;
+    }
+
+    .giftbox .img {
+        width: 110px !important;
+        position: relative !important;
+        left: auto !important;
+        bottom: auto !important;
+        margin-top: -60px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .textLetter {
+        width: 100% !important;
+        height: auto !important;
+        justify-content: flex-start !important;
+        padding: 10px 5px !important;
+    }
+
+    .textLetter h2 {
+        font-size: 26px !important;
+        margin-bottom: 5px !important;
+        margin-top: 0 !important;
+    }
+
+    .contentLetter {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 40px !important;
+    }
+
+    .heartAnimation {
+        width: 60px !important;
+        bottom: 10px !important;
+    }
+
+    .close-letter {
+        position: relative !important;
+        padding: 8px 15px !important;
+        font-size: 14px !important;
+        margin-top: 5px !important;
+        z-index: 20 !important;
+    }
+
+    .mewmew1,
+    .mewmew2 {
+        width: 40px !important;
+    }
+}
