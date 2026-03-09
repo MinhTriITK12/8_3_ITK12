@@ -278,14 +278,28 @@ function startSvgDrawing() {
     rid = window.requestAnimationFrame(Typing);
 }
 
+let lastImageIndex = -1;
+
 // Logic tạo ảnh bay
 function createFloatingImage() {
     const img = document.createElement('img');
 
-    // Chọn ngẫu nhiên 1 ảnh
-    const randomImage = imageLinks[Math.floor(Math.random() * imageLinks.length)];
+    // Chọn ngẫu nhiên 1 ảnh (không trùng với ảnh trước đó)
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * imageLinks.length);
+    } while (randomIndex === lastImageIndex && imageLinks.length > 1);
+
+    lastImageIndex = randomIndex;
+    const randomImage = imageLinks[randomIndex];
+
     img.src = randomImage;
     img.className = 'floating-img';
+
+    // Nếu ảnh bị lỗi (ví dụ hiển thị dấu chấm hỏi), thì ẩn nó đi để không bị xấu
+    img.onerror = function () {
+        this.style.display = 'none';
+    };
 
     // Vị trí ngang ngẫu nhiên
     const randomLeft = Math.floor(Math.random() * 70) + 10;
